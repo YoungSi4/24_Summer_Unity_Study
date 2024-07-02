@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,7 +11,7 @@ public class Player : MonoBehaviour
     // 1. wasd space
     // 2. 마우스 시선처리
 
-    private Rigidbody rigid;
+    private Rigidbody rigid; // 이 오브젝트 본인에게 붙어있기 떄문에 private
 
     // 스탯
     private const int Maxhp = 3;
@@ -35,9 +36,13 @@ public class Player : MonoBehaviour
 
     // 총알
     public GameObject bullet;
+
+    // 무기
+    // muzzle?
+    public Weapon[] weapons;
+    private Weapon curWeapon;
     public Transform muzzle;
-    public float bulletDmg;
-    public float bulletSpeed;
+    
 
     void Start()
     {
@@ -48,6 +53,11 @@ public class Player : MonoBehaviour
             // 마우스 감추기
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
+
+            // 시작 무기
+            weapons[0].gameObject.SetActive(true);
+            weapons[0].Init(muzzle);
+            curWeapon = weapons[0];
         }
         
     }
@@ -82,6 +92,12 @@ public class Player : MonoBehaviour
             enableJump = false;
         }
 
+        if (Input.GetKeyDown(KeyCode.Alpha1)) SelectWeapon(0);
+        if (Input.GetKeyDown(KeyCode.Alpha2)) SelectWeapon(1);
+        if (Input.GetKeyDown(KeyCode.Alpha3)) SelectWeapon(2);
+
+
+
         moveVector.Normalize(); // 대각선으로 가도 길이를 1로 바꿔주는 역할.
 
         // transform은 만들지 않아도 호출 가능. 모든 오브젝트가 transform을 가지고 있기 때문.
@@ -106,14 +122,9 @@ public class Player : MonoBehaviour
         headPivot.rotation = Quaternion.Euler(tempRotation);
 
 
+        
 
-        // 총알 발사
-        if (Input.GetMouseButtonDown(0)) // 0: 좌클릭, 1: 우클릭, 2: 휠, 3: 추가버튼 앞, 4: 추가버튼 뒤
-        {
-            // bullet 생성
-            var tempBullet = Instantiate(bullet, muzzle.position, headPivot.rotation);
-            tempBullet.GetComponent<Bullet>().Init(bulletSpeed, bulletDmg);
-        }
+
     }
 
     private void GetDamage(Vector3 enemyPos)
@@ -148,6 +159,19 @@ public class Player : MonoBehaviour
             GetDamage(collision.transform.position);
         }
     }
+
+    
+
+    private void SelectWeapon(int idx)
+    {
+        curWeapon.gameObject.SetActive(false);
+
+        weapons[idx].gameObject.SetActive(true);
+        weapons[idx].Init(muzzle);
+
+        curWeapon = weapons[idx];
+    }
+
 
     private IEnumerator invincibleTimer()
     {

@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/2_SimpleFPS/Scene/FPS.unity
+- path: Assets/5_Inventory/Scene/Inventory.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
