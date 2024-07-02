@@ -17,7 +17,7 @@ public class InventorySystem : MonoBehaviour
 
     public RectTransform iconLayer;
 
-    private ItemIcon itemIcon;
+    private ItemIcon icon;
 
     // 해시테이블로 아이템 데이터를 들고 있자 - 유니티에서 dict은 public으로도 노출이 안 된다.
     // 간접적인 방법으로 노출시켜야 한다.
@@ -81,7 +81,7 @@ public class InventorySystem : MonoBehaviour
         tooltipTransform.anchoredPosition = pos;
     }
 
-    public void InitDrag(ItemIcon icon)
+    public void InitDrag(ItemIcon itemIcon)
     {
         icon = itemIcon;
 
@@ -90,5 +90,7 @@ public class InventorySystem : MonoBehaviour
 
         tooltipObj.SetActive(false);
         icon.GetComponent<Image>().raycastTarget = false;
+
+        icon.SetPos();
     }
 }

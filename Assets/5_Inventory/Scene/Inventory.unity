@@ -355,6 +355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slot: {fileID: 1257082292}
+  pos: {x: 0, y: 0}
 --- !u!114 &94787720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -444,6 +445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slot: {fileID: 839068065}
+  pos: {x: 0, y: 0}
 --- !u!114 &158300132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -715,6 +717,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slot: {fileID: 637710936}
+  pos: {x: 0, y: 0}
 --- !u!114 &224804279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -804,6 +807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slot: {fileID: 2135203268}
+  pos: {x: 0, y: 0}
 --- !u!114 &285069998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -893,6 +897,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slot: {fileID: 902938829}
+  pos: {x: 0, y: 0}
 --- !u!114 &326590221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -982,6 +987,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slot: {fileID: 541717487}
+  pos: {x: 0, y: 0}
 --- !u!114 &378964312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1162,6 +1168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slot: {fileID: 487215556}
+  pos: {x: 0, y: 0}
 --- !u!114 &432971294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1251,6 +1258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slot: {fileID: 1752509912}
+  pos: {x: 0, y: 0}
 --- !u!114 &462849424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1614,6 +1622,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slot: {fileID: 1545416022}
+  pos: {x: 0, y: 0}
 --- !u!114 &589283772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2262,6 +2271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slot: {fileID: 382516100}
+  pos: {x: 0, y: 0}
 --- !u!114 &951567798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2536,6 +2546,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slot: {fileID: 803390111}
+  pos: {x: 0, y: 0}
 --- !u!114 &1011385280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2625,6 +2636,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slot: {fileID: 208796435}
+  pos: {x: 0, y: 0}
 --- !u!114 &1062370994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2752,6 +2764,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slot: {fileID: 1474314084}
+  pos: {x: 0, y: 0}
 --- !u!1 &1198471245
 GameObject:
   m_ObjectHideFlags: 0
@@ -3187,6 +3200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slot: {fileID: 163794776}
+  pos: {x: 0, y: 0}
 --- !u!114 &1379291245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3367,6 +3381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slot: {fileID: 56977644}
+  pos: {x: 0, y: 0}
 --- !u!114 &1486111930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3642,6 +3657,7 @@ MonoBehaviour:
   tooltipTransform: {fileID: 1503871807}
   tooltipItemName: {fileID: 1315079878}
   tooltipItemDesc: {fileID: 1811043333}
+  iconLayer: {fileID: 1860699958}
   itemDataGroup:
   - {fileID: 11400000, guid: 82f2102df41b01b4395567076eb2c2cc, type: 2}
   - {fileID: 11400000, guid: 947fd159440b339409fedb462174ffd1, type: 2}
@@ -3697,6 +3713,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slot: {fileID: 24503325}
+  pos: {x: 0, y: 0}
 --- !u!114 &1543183625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3968,6 +3985,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slot: {fileID: 614619501}
+  pos: {x: 0, y: 0}
 --- !u!114 &1702417298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4410,6 +4428,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slot: {fileID: 1198471247}
+  pos: {x: 0, y: 0}
 --- !u!114 &1915608276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4499,6 +4518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slot: {fileID: 1905380765}
+  pos: {x: 0, y: 0}
 --- !u!114 &1924860337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4588,6 +4608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slot: {fileID: 1580250051}
+  pos: {x: 0, y: 0}
 --- !u!114 &1983559639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4677,6 +4698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slot: {fileID: 992476414}
+  pos: {x: 0, y: 0}
 --- !u!114 &2019486333
 MonoBehaviour:
   m_ObjectHideFlags: 0
