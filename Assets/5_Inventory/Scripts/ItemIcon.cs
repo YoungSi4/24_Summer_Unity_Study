@@ -1,14 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 
-// 인터페이스 관련은 다중 상속 가능?
-public class ItemIcon : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler, IPointerDownHandler, IPointerUpHandler
+public class ItemIcon : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler, IPointerDownHandler
 {
-    public Slot slot; // 어떤 슬롯 위에 있는지
-    
-    public Vector2 pos;
+    public Slot slot;
+    public Vector2 posOffset;
+
     private RectTransform rectTransform;
 
     private void Awake()
@@ -16,14 +17,14 @@ public class ItemIcon : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         rectTransform = GetComponent<RectTransform>();
     }
 
-    public void SetPos()
+    public void SetPos(Vector2 pos)
     {
-        rectTransform.anchoredPosition = pos;
+        rectTransform.anchoredPosition = pos - posOffset;
     }
-
+    
     public void OnPointerEnter(PointerEventData eventData)
     {
-        slot.MouseEnter(); // 어떤 슬롯 위로 마우스가 올라감
+        slot.MouseEnter();
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -31,22 +32,29 @@ public class ItemIcon : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         slot.MouseExit();
     }
 
-    // 아이콘 상에 올라가 있는 동안
     public void OnPointerMove(PointerEventData eventData)
     {
-        // 툴팁이 계속 따라옴
         slot.MouseMove(eventData.position);
-
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
         slot.MouseDown(this);
-        pos = eventData.position;
+        posOffset = eventData.position - rectTransform.anchoredPosition;
     }
 
-    public void OnPointerUp(PointerEventData eventData)
+    public void Reset()
     {
-        
+        transform.SetParent(slot.transform);
+        rectTransform.anchoredPosition = new Vector2(50f, 50f);
+        slot.Reset();
     }
+
+    public void BackToSlot()
+    {
+        transform.SetParent(slot.transform);
+        rectTransform.anchoredPosition = new Vector2(50f, 50f);
+        slot.BackToSlot();
+    }
+    
 }

@@ -1,51 +1,83 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Slot : MonoBehaviour
+public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    // 위쪽에 전달해줘야 함
-    public InventorySystem InventorySystem;
-    private ItemData itemData; // 여기서도 가지고 있어야 함
-
-    // 이미지를 받아서 칸에 위치시키고 @ 값을 조정하는 식
+    public InventorySystem inventorySystem;
+    private ItemData itemData;
+    public ItemData ItemData => itemData;
+    
     public Image itemImage;
 
-    private bool _isFilled = false; // 내부적으로 사용
-    public bool isFilled => _isFilled; // 외부 읽기 전용 property
-
-    public void SetItem(ItemData data) // 깃발 - 데이터 정의 필요
+    private bool _isFilled = false;
+    public bool isFilled => _isFilled;
+    
+    public void SetItem(ItemData data)
     {
         itemData = data;
+        
         itemImage.sprite = data.itemImage;
+
         var tempColor = itemImage.color;
-        tempColor.a = 225f;
+        tempColor.a = 1f;
         itemImage.color = tempColor;
+         
         _isFilled = true;
     }
-    
+
     public void MouseEnter()
     {
         if (itemData == null) return;
-
-        InventorySystem.InitTooltip(itemData);
-
+        
+        inventorySystem.InitTooltip(itemData);
     }
 
     public void MouseExit()
     {
-        // (버그에 덜 민감하게): if문 처리 X
-        InventorySystem.DisableTooltip();
+        inventorySystem.ExitTooltip();
     }
 
     public void MouseMove(Vector2 pos)
     {
-        InventorySystem.TooltipMove(pos);
+        inventorySystem.TooltipMove(pos);
     }
 
     public void MouseDown(ItemIcon icon)
     {
-        InventorySystem.InitDrag(icon);
+        inventorySystem.InitDrag(icon);
+    }
+
+    public void Reset()
+    {
+        itemImage.sprite = null;
+        
+        var tempColor = itemImage.color;
+        tempColor.a = 0f;
+        itemImage.color = tempColor;
+
+        itemImage.raycastTarget = true;
+
+        itemData = null;
+        
+        _isFilled = false;
+    }
+
+    public void BackToSlot()
+    {
+        itemImage.raycastTarget = true;
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        inventorySystem.SetFocusedSlot(this);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if(inventorySystem.FocusedSlot == this)
+            inventorySystem.SetFocusedSlot(null);
     }
 }
